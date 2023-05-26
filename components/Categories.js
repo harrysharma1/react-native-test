@@ -9,8 +9,9 @@ const Categories = () => {
     paddingTop:10
 
     }}
-   horizontal
-   showsHorizontalScrollIndicator={false}
+    horizontal
+    showsHorizontalScrollIndicator={false}
+    className="bg-gray-200"
    >
     <CategoryCard imgUrl="https://links.papareact.com/gn7" title="testing1"/>
     <CategoryCard imgUrl="https://links.papareact.com/gn7" title="testing2"/>

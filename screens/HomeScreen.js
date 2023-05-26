@@ -5,6 +5,7 @@ import * as Icons from "react-native-heroicons/outline";
 import { TextInput } from 'react-native';
 import { SafeAreaView as SAE } from 'react-native-safe-area-context';
 import Categories from '../components/Categories';
+import FeaturedRow from '../components/FeaturedRow';
 
 const HomeScreen = () => {
     const navigation=useNavigation();
@@ -15,9 +16,8 @@ const HomeScreen = () => {
         })
     },[])
     return (
-        <SAE edges={['top','left','right']} className=" pt-1 bg-white flex-col"> 
+        <SAE edges={['top','bottom','left','right']} className=" pt-1  flex-col"> 
             {/*Header*/}
-           
                 <View className="flex-row pb-3 items-center mx-4 space-x-2 ">
                     <Image
                         source={{
@@ -48,11 +48,27 @@ const HomeScreen = () => {
                     </View>
                     <Icons.AdjustmentsVerticalIcon color="#00CCBB"/>
                 </View>  
+            
             {/* Body */}
             <ScrollView>
                 {/* Categories */}
                 <Categories/>
                 {/* Featured */}
+                <FeaturedRow
+                    id="0"
+                    title="Featured"
+                    description="Paid placements from our partner"
+                />
+                <FeaturedRow
+                    id="1"
+                    title="Tasty Discounts"
+                    description="Every one has been enjoying these discounts!"
+                />
+                <FeaturedRow
+                    id="2"
+                    title="Offers near you!"
+                    description="Why not support our local restaurants tonight"
+                />
             </ScrollView>
 
         </SAE>
