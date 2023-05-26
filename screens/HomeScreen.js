@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, Image, TextInputBase, ScrollView } from 'react-native'
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect, useLayoutEffect,useState } from 'react';
 import { useNavigation} from '@react-navigation/native';
 import * as Icons from "react-native-heroicons/outline";
 import { TextInput } from 'react-native';
@@ -9,12 +9,17 @@ import FeaturedRow from '../components/FeaturedRow';
 
 const HomeScreen = () => {
     const navigation=useNavigation();
+    const [featuredCategories,setFeaturedCategories]=useState([])
 
     useLayoutEffect(()=>{
         navigation.setOptions({
             headerShown:false
         })
     },[])
+
+
+
+
     return (
         <SAE edges={['top','bottom','left','right']} className=" pt-1  flex-col"> 
             {/*Header*/}
@@ -54,21 +59,7 @@ const HomeScreen = () => {
                 {/* Categories */}
                 <Categories/>
                 {/* Featured */}
-                <FeaturedRow
-                    id="0"
-                    title="Featured"
-                    description="Paid placements from our partner"
-                />
-                <FeaturedRow
-                    id="1"
-                    title="Tasty Discounts"
-                    description="Every one has been enjoying these discounts!"
-                />
-                <FeaturedRow
-                    id="2"
-                    title="Offers near you!"
-                    description="Why not support our local restaurants tonight"
-                />
+                
             </ScrollView>
 
         </SAE>
