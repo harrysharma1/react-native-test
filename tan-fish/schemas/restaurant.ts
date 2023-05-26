@@ -58,8 +58,8 @@ export default {
             name: 'dishes',
             title: 'Dishes',
             type: 'array',
-            of: [{type: 'reference', to: [{type: 'dishes'}]}],
+            of: [{type: 'reference', to: [{type: 'dish'}]}],
        
-        }
+        },
     ]
 }
