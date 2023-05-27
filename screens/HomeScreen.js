@@ -5,19 +5,33 @@ import * as Icons from "react-native-heroicons/outline";
 import { TextInput } from 'react-native';
 import { SafeAreaView as SAE } from 'react-native-safe-area-context';
 import Categories from '../components/Categories';
+import 'react-native-url-polyfill/auto'
 import FeaturedRow from '../components/FeaturedRow';
+import client from '../sanity';
 
 const HomeScreen = () => {
     const navigation=useNavigation();
-    const [featuredCategories,setFeaturedCategories]=useState([])
-
+    // const [featured , setFeatured] = useState([]);
     useLayoutEffect(()=>{
         navigation.setOptions({
             headerShown:false
         })
-    },[])
-
-
+    },[])                                        
+    // useEffect(()=>{
+    //     client.fetch(
+    //             `
+    //             *[_type=="featured"]{
+    //                 ...,
+    //                 restaurant[]->{
+    //                     ...,
+    //                     dishes[]->
+    
+    //                 }
+    //             }
+    //             `
+    //     ).then((res)=>{setFeatured(res)})
+    // },[])
+    // console.log(featured)
 
 
     return (
@@ -59,7 +73,15 @@ const HomeScreen = () => {
                 {/* Categories */}
                 <Categories/>
                 {/* Featured */}
-                
+                {/* {featured?.map((category)=>{
+                    <FeaturedRow
+                        key={category._id}
+                        id={category._id}
+                        title={category.name}
+                        description={category.short_description}
+                    />
+                })} */}
+               
             </ScrollView>
 
         </SAE>
